@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://btp1ibsk4b7xt"]
+
+[ext_resource type="PackedScene" uid="uid://dtilpyyc3gkh2" path="res://Scene/bird.tscn" id="1_5nf66"]
+[ext_resource type="Texture2D" uid="uid://bwf5i0qyei8n0" path="res://Assets/background-day.png" id="1_awsh2"]
+[ext_resource type="Script" path="res://Scene/GameManager.gd" id="1_ww3ei"]
+[ext_resource type="Script" path="res://Scripts/pipe_spawner.gd" id="3_kjkin"]
+[ext_resource type="Texture2D" uid="uid://cptlgo37ymkoe" path="res://Assets/chocolateBlack.jpg" id="3_td55s"]
+[ext_resource type="Texture2D" uid="uid://d3wkvsdbt865r" path="res://Assets/BlueScreen.png" id="5_jgu0g"]
+[ext_resource type="PackedScene" uid="uid://3o0d528vtdwf" path="res://Scene/fade.tscn" id="6_binhv"]
+[ext_resource type="Texture2D" uid="uid://7l5pq3lm0ec" path="res://Assets/testingBG.jpg" id="6_eg60i"]
+[ext_resource type="Texture2D" uid="uid://drixgs2fgn2gc" path="res://Assets/bg.png" id="7_pknrj"]
+[ext_resource type="PackedScene" uid="uid://dtsfutbumtxem" path="res://Scene/UI.tscn" id="7_u8p8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bjj3"]
+size = Vector2(1032, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefaw"]
+size = Vector2(1031, 24)
+
+[node name="main" type="Node"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_ww3ei")
+
+[node name="World" type="Node" parent="."]
+
+[node name="Background2" type="Sprite2D" parent="World"]
+visible = false
+position = Vector2(7.50002, 76.5)
+scale = Vector2(0.577567, 0.633789)
+texture = ExtResource("7_pknrj")
+
+[node name="Background" type="Sprite2D" parent="World"]
+visible = false
+position = Vector2(4, 66.5)
+scale = Vector2(1.3, 0.79375)
+texture = ExtResource("3_td55s")
+
+[node name="Background1" type="Sprite2D" parent="World"]
+visible = false
+texture_filter = 1
+position = Vector2(-1.49997, -2.5)
+scale = Vector2(5.58681, 1.74023)
+texture = ExtResource("1_awsh2")
+
+[node name="BlueScreen" type="Sprite2D" parent="World"]
+position = Vector2(22, 73)
+scale = Vector2(0.260622, 0.851944)
+texture = ExtResource("5_jgu0g")
+
+[node name="TestingBg" type="Sprite2D" parent="World"]
+position = Vector2(0, 57)
+texture = ExtResource("6_eg60i")
+
+[node name="upper_area" type="Area2D" parent="World"]
+
+[node name="upper_collision" type="CollisionShape2D" parent="World/upper_area"]
+position = Vector2(4, -264)
+shape = SubResource("RectangleShape2D_7bjj3")
+
+[node name="lower_area" type="Area2D" parent="World"]
+
+[node name="lower_collision" type="CollisionShape2D" parent="World/lower_area"]
+position = Vector2(2, 384)
+shape = SubResource("RectangleShape2D_tefaw")
+
+[node name="PipeSpawner" type="Node" parent="."]
+script = ExtResource("3_kjkin")
+
+[node name="SpawnTimer" type="Timer" parent="PipeSpawner"]
+wait_time = 0.75
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Bird" parent="." instance=ExtResource("1_5nf66")]
+
+[node name="Fade" parent="." instance=ExtResource("6_binhv")]
+
+[node name="UI" parent="." instance=ExtResource("7_u8p8e")]
+
+[connection signal="body_entered" from="World/upper_area" to="Bird" method="_on_upper_area_body_entered"]
+[connection signal="body_entered" from="World/lower_area" to="Bird" method="_on_lower_area_body_entered"]

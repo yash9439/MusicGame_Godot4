@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckt2biuavk313"]
+
+[ext_resource type="Texture2D" uid="uid://cet4cekw32tsa" path="res://Assets/base.png" id="1_5v8xn"]
+[ext_resource type="Script" path="res://Scene/upward_ground.gd" id="1_380pg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nng8e"]
+size = Vector2(559, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8clm2"]
+size = Vector2(576.5, 43)
+
+[node name="upward ground" type="Node2D"]
+script = ExtResource("1_380pg")
+
+[node name="ground1" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ground1"]
+position = Vector2(5.86722, -72.0584)
+rotation = 3.14159
+scale = Vector2(1.62636, 1.22582)
+texture = ExtResource("1_5v8xn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground1"]
+position = Vector2(13, -26)
+shape = SubResource("RectangleShape2D_nng8e")
+
+[node name="ground2" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ground2"]
+position = Vector2(558.977, -71.5944)
+rotation = 3.14159
+scale = Vector2(1.65523, 1.20933)
+texture = ExtResource("1_5v8xn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground2"]
+position = Vector2(560, -24)
+shape = SubResource("RectangleShape2D_8clm2")
+
+[connection signal="body_entered" from="ground1" to="." method="_on_ground_1_body_entered"]
+[connection signal="body_entered" from="ground2" to="." method="_on_ground_1_body_entered"]

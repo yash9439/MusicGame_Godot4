@@ -1,0 +1,104 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjl1l0sve00ec"]
+
+[ext_resource type="PackedScene" uid="uid://6lkdg8deuteq" path="res://level_box.tscn" id="1_4o7v8"]
+
+[node name="LevelGrid" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 6
+
+[node name="LevelBox" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+locked = false
+
+[node name="LevelBox2" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+locked = false
+level_num = 2
+
+[node name="LevelBox3" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox4" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox5" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox6" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox7" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox8" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox9" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox10" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox11" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox12" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox13" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox14" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox15" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox16" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox17" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[node name="LevelBox18" parent="." instance=ExtResource("1_4o7v8")]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="LevelBox" to="LevelBox" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox" to="LevelBox" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox2" to="LevelBox2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox2" to="LevelBox2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox3" to="LevelBox3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox3" to="LevelBox3" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox4" to="LevelBox4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox4" to="LevelBox4" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox5" to="LevelBox5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox5" to="LevelBox5" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox6" to="LevelBox6" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox6" to="LevelBox6" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox7" to="LevelBox7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox7" to="LevelBox7" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox8" to="LevelBox8" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox8" to="LevelBox8" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox9" to="LevelBox9" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox9" to="LevelBox9" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox10" to="LevelBox10" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox10" to="LevelBox10" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox11" to="LevelBox11" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox11" to="LevelBox11" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox12" to="LevelBox12" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox12" to="LevelBox12" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox13" to="LevelBox13" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox13" to="LevelBox13" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox14" to="LevelBox14" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox14" to="LevelBox14" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox15" to="LevelBox15" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox15" to="LevelBox15" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox16" to="LevelBox16" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox16" to="LevelBox16" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox17" to="LevelBox17" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox17" to="LevelBox17" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LevelBox18" to="LevelBox18" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelBox18" to="LevelBox18" method="_on_mouse_exited"]

@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq6tvhqcy2aps"]
+
+[ext_resource type="Script" path="res://addons/EasyMenus/Scripts/main_menu_controller.gd" id="1_lbw7r"]
+[ext_resource type="Texture2D" uid="uid://cfngk5p65xvc7" path="res://Assets/blackboard.jpg" id="2_n4ac8"]
+[ext_resource type="PackedScene" uid="uid://qlskttl1wjr7" path="res://addons/EasyMenus/Scenes/options_menu.tscn" id="2_pwqpr"]
+[ext_resource type="PackedScene" uid="uid://dru131jwwih1y" path="res://addons/EasyMenus/Nodes/menu_template_manager.tscn" id="3_65vis"]
+[ext_resource type="Theme" uid="uid://bg80y2n6mvg1g" path="res://new_theme.tres" id="3_qv1ry"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lbw7r")
+
+[node name="Blackboard" type="Sprite2D" parent="."]
+position = Vector2(803, 444.5)
+scale = Vector2(1.27969, 1.08675)
+texture = ExtResource("2_n4ac8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1610.0
+offset_bottom = 904.0
+theme = ExtResource("3_qv1ry")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 1603.0
+offset_bottom = 886.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/CenterContainer"]
+custom_minimum_size = Vector2(500, 350)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Sangitam"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("2_pwqpr")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+anchors_preset = 0
+
+[node name="MenuTemplateManager" parent="." instance=ExtResource("3_65vis")]
+
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsButton" to="." method="open_options"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="quit"]
+[connection signal="close" from="OptionsMenu" to="." method="close_options"]
